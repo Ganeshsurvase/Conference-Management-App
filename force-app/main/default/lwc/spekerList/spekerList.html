@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Speakers">
+        <div class="slds-p-around_small">
+            <template if:true={speakers}>
+                <lightning-datatable
+                    data={speakers}
+                    columns={columns}
+                    key-field="Id"
+                    onrowaction={handleRowAction}>
+                </lightning-datatable>
+            </template>
+            <template if:true={error}>
+                <div class="slds-text-color_error">{error}</div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

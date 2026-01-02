@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Speaker Details & Booking">
+        <div class="slds-p-around_small">
+            <template if:true={selectedSpeaker}>
+                <p><strong>Name:</strong> {selectedSpeaker.Name}</p>
+                <p><strong>Email:</strong> {selectedSpeaker.Email__c}</p>
+                <p><strong>Speciality:</strong> {selectedSpeaker.Speciality__c}</p>
+                <p><strong>Bio:</strong></p>
+                <p class="slds-p-left_small">{selectedSpeaker.Bio__c}</p>
+
+                <lightning-input label="Session Title" value={title} onchange={handleTitle}></lightning-input>
+                <lightning-input label="Session Date" type="date" value={sessionDate} onchange={handleDate}></lightning-input>
+                <lightning-input label="Start Time" type="time" value={startTime} onchange={handleStartTime}></lightning-input>
+                <lightning-input label="End Time" type="time" value={endTime} onchange={handleEndTime}></lightning-input>
+
+                <div class="slds-m-top_small">
+                    <lightning-button label="Check Availability" onclick={checkAvailability}></lightning-button>
+                    <lightning-button label="Create Assignment" variant="brand" onclick={createAssignment} disabled={createDisabled}></lightning-button>
+                </div>
+            </template>
+           
+        </div>
+    </lightning-card>
+</template>

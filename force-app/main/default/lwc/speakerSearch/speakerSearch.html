@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Conference — Speaker Manager">
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_1-of-2">
+                <!-- Left column: Search + list -->
+                <div class="slds-p-around_medium">
+                    <lightning-input label="Name" value={nameFilter} onchange={handleNameChange}></lightning-input>
+                    <lightning-input label="Speciality" value={specialityFilter} onchange={handleSpecialityChange}></lightning-input>
+                    <div class="slds-m-top_small">
+                        <lightning-button label="Search" onclick={handleSearch}></lightning-button>
+                        <lightning-button variant="neutral" label="Clear" onclick={handleClear}></lightning-button>
+                    </div>
+                    <c-speaker-list name-filter={nameFilter} speciality-filter={specialityFilter} onselected={handleSpeakerSelected}></c-speaker-list>
+                </div>
+            </div>
+
+            <div class="slds-col slds-size_1-of-2">
+                <!-- Right column: Details & booking -->
+                <div class="slds-p-around_medium">
+                    <c-book-session selected-speaker={selectedSpeaker}></c-book-session>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>
